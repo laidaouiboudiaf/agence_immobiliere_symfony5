@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+{% block title properties.title %}
+
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+
+
+            <div class="row mt-5">
+                <div class="col-md-8">
+
+                </div>
+                <div class="col-md-4">
+                    <h1>
+                        {{ properties.title }}
+                    </h1>
+                    <h2>
+                        {{ properties.rooms }} piece - {{ properties.surface }} m2
+                    </h2>
+                    <div class="text-primary"
+                         style="font-size: 4rem;font-weight: bold"> {{ properties.price|number_format(0,'',' ') }} $
+                    </div>
+                    <a href="" class="btn btn-warning">Contacter l'entreprise </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+
+
+        <nav class="nav nav-tabs mt-5" id="tab"></nav>
+        <h4 style="font-weight: bold ;color: darkorange">
+            Descriptif détaillé
+
+        </h4>
+        <p>
+            {{ properties.discription| nl2br }}
+        </p>
+        <div class="row">
+            <div class="col-md-8">
+                <h2> Caractéristique </h2>
+                <table class="table table-striped">
+                    <tr>
+                        <td>Surface habitable</td>
+                        <td>{{ properties.surface }}</td>
+                    </tr>
+                    <tr>
+                        <td>Pieces</td>
+                        <td>{{ properties.rooms }}</td>
+                    </tr>
+                    <tr>
+                        <td>Chambre</td>
+                        <td> {{ properties.bedrooms }}</td>
+                    </tr>
+                    <tr>
+                        <td> Etage</td>
+                        <td>{{ properties.floor }}</td>
+                    </tr>
+                    <tr>
+                        <td> Chauffage</td>
+                        <td> {{ properties.typeHeat }}</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h2> Spécificités </h2>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+{% endblock %}
+

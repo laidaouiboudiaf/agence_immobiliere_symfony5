@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block title %} Tous nos bien {% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron mt-5">
+        <div class="container">
+            {{ form_start(form) }}
+            <div class="form-row">
+
+                <div class="col">
+                    {{ form_row(form.maxPrice) }}
+                </div>
+
+                <div class="col">
+                    {{ form_row(form.mixSurface) }}
+                </div>
+                <div class="col">
+                    <button class="btn btn-warning"> Rechercher</button>
+
+
+                </div>
+
+            </div>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <h3> Voir la suite </h3>
+        <div class="row">
+            {% for property  in properties %}
+                <div class="col-md-4">
+
+                    {% include('pages/_property.html.twig') %}
+                </div>
+
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            {{ knp_pagination_render(properties,) }}
+        </div>
+    </div>
+{% endblock %}

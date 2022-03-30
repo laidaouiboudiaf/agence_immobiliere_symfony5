@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Gestion des announces !{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        <h1> Gerer les bien ! ✅</h1>
+
+
+        <table class="table table-striped">
+            <thead>
+
+            <tr>
+                <td> Titre</td>
+                <td> Action</td>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for property in properties %}
+                <tr>
+                    <td> {{ property.title }} </td>
+                    <td>
+                        <a  href="{{ path('admin.owner.edit', {id: property.id }) }} " class="btn btn-warning" >Edit </a>
+                        <a href="{{ path('admin.owner.delete', {id: property.id }) }} " class="btn btn-danger" onsubmit="return confirm('Etes vous sur')">Supprimer </a>
+
+
+                      {#  <form method="post" action="{{ path('admin.owner.delete' ,{id: property.id }) }}"
+                              style="display: inline-block">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="btn btn-danger"> Supprimer</button>#}
+
+
+                        </form>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+
+
+        </table>
+        <div class="text-right">
+            <a href="{{ path('admin.owner.new') }}" class="btn btn-warning">Ajouter un bien </a>
+        </div>
+    </div>
+{% endblock %}

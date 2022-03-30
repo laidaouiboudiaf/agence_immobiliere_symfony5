@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container mt-4 ">
+
+        <h2> Poster une annonce </h2>
+
+        {{ include('admin_owner/form.html.twig',{form: form,button:'Ajouter'}) }}
+
+    </div>
+{% endblock %}
+
+
+

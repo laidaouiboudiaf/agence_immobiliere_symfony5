@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <nav class=""></nav>
+        <div class="jumbotron text-center  mt-4" style="color:orange;font-weight: bold; background-color: #f1f2f3 ">
+            <nav class="nav nav-tabs mt-5" id="tab">
+                <h5> Nos {{ numberAnnounces }} annonces à la vente </h5>
+            </nav>
+
+
+
+        </div>
+        <div class="row flex mt-5">
+            {% for property in properties %}
+                <div class="col-3">
+                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+
+                                <a href="{{ path('owner.show',{id:property.id, slug: property.slug}) }}">{{ property.title }}</a>
+
+                            </h5>
+                            <p class="card-text"> {{ property.city }} ({{ property.postalCode }})</p>
+                            <div class="text-primary"
+                                 style="font-weight: bold;size: 2rem"> {{ property.price|number_format(0,'', ' ') }} $
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
